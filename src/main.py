@@ -1,17 +1,28 @@
 import subprocess
 from subprocess import PIPE, Popen
 from tqdm.auto import trange
+import sys
+import argparse
 
-if __name__ == "__main__":
 
-    # The partial seedphrase
-    # The real one is: session little medal decrease humor city twist wink strong short twelve bench hurry inject hurt edit convince today price action country disease spice trend
-    # The word "decrease" is missing
-    
-    seed_partial    = "session little medal          humor city twist wink strong short twelve bench hurry inject hurt edit convince today price action country disease spice trend"
+def main():
 
-    # The address that we are searching for
-    address =  "7zaM9ebxa76zE5WWaAT81RSWsFBgMZeZooMJYPoXRqVn"
+    parser = argparse.ArgumentParser()
+    parser.add_argument("a", type=str, help="the address of the wallet")
+    parser.add_argument("s", type=str, help="the partial seedphrase in quotes")
+    parser.add_argument('-w', action="store_true", default=False, help="try single word swaps (20x slower)")
+    args = parser.parse_args()
+
+    address = args.a
+    seed_partial = args.s
+    try_swaps = args.w
+
+      # Example values:
+      # The real seed is: session little medal decrease humor city twist wink strong short twelve bench hurry inject hurt edit convince today price action country disease spice trend
+      # seed_partial    = "session little medal humor city twist wink strong short twelve bench hurry inject hurt edit convince today price action country disease spice trend"
+      # The address that we are searching for
+      # address =  "7zaM9ebxa76zE5WWaAT81RSWsFBgMZeZooMJYPoXRqVn"
+
 
     seed_partial_list=seed_partial.split(sep=None)
 
@@ -20,9 +31,6 @@ if __name__ == "__main__":
 
     dictionary=bip_words
 
-    # 20x slower but it will fix single swapped words as well as one omitted word
-    try_swaps=False
-    output = ''
     done=False
 
     for i in trange(0,24, desc="place?"):
@@ -59,7 +67,7 @@ if __name__ == "__main__":
                         if address in str(output):
                             done = True
 
-                            print("*********************SUCCESS*********************")
+                            print("\n\n\n *********************SUCCESS*********************\n\n\n")
                             print("seed-phrase: " + str(seed_ansatz_str))
                             print("address: " + str(output))
 
@@ -77,4 +85,5 @@ if __name__ == "__main__":
 
 
 
-
+if __name__ == "__main__":
+   main()
