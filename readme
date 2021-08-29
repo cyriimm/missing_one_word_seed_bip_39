@@ -1,0 +1,12 @@
+***Readme***
+
+Command line tool to recover partially lost seedphrases on Solana given the wallet address and most of the seedphrase. 
+
+Currently can deal with a single missing word, or with the -w option a single missing word and one pair swapped.
+
+**Example useage:**
+
+python3 main.py 7zaM9ebxa76zE5WWaAT81RSWsFBgMZeZooMJYPoXRqVn  "session little medal humor city twist wink strong short twelve bench hurry inject hurt edit convince today price action country disease spice trend" 
+
+
+python3 main.py 7zaM9ebxa76zE5WWaAT81RSWsFBgMZeZooMJYPoXRqVn  "little decrease medal humor city twist wink strong short twelve bench hurry inject hurt edit convince today price action country disease spice trend" -w 
