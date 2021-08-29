@@ -6,8 +6,9 @@ if __name__ == "__main__":
 
     # The partial seedphrase
     # The real one is: session little medal decrease humor city twist wink strong short twelve bench hurry inject hurt edit convince today price action country disease spice trend
-    # The word "edit" is missing
-    seed_partial    = "session little medal decrease humor city twist wink strong short twelve bench hurry inject hurt      convince today price action country disease spice trend"
+    # The word "decrease" is missing
+    
+    seed_partial    = "session little medal          humor city twist wink strong short twelve bench hurry inject hurt edit convince today price action country disease spice trend"
 
     # The address that we are searching for
     address =  "7zaM9ebxa76zE5WWaAT81RSWsFBgMZeZooMJYPoXRqVn"
